@@ -1,7 +1,15 @@
 # Hugo site
 
+Forked from https://github.com/Yukuro/hugo-theme-shell, fixed some issues for recent version of hugo
+
+
  Change the config.toml located in the theme directory
+ > For some reason it does not use the main folder config.toml, I do not care to find why now.
  
  *hugo server -D* to serve file locally
  
  *hugo* command to generate static files in public
+
+ *podman build -t my-hugo-site .* tp build the image with podman
+  
+ *podman run -d -p 8080:80 my-hugo-site* to run the image with podman
