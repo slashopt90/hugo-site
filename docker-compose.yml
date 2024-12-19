@@ -1,0 +1,14 @@
+version: "3"
+services:
+  my-hugo-site:
+    image: slashopt90/my-hugo-site:latest
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.navidrome.entrypoints=websecure"
+      - "traefik.http.routers.navidrome.rule=Host(`www.slashopt.at`)"
+      - "traefik.http.routers.navidrome.tls.certresolver=lets-encrypt"
+      - "traefik.http.routers.navidrome.service=my-hugo-site"
+      - "traefik.http.services.navidrome.loadbalancer.server.port=4533"
